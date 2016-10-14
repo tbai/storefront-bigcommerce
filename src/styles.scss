@@ -1,1 +1,19 @@
-/* You can add global styles to this file, and also import other style files */
+/* Global styles */
+
+@import "./scss/skeleton/base/normalize";
+@import "./scss/skeleton/base/variables";
+@import "./scss/custom-variables";
+@import "./scss/skeleton/base/functions";
+@import "./scss/skeleton/base/base-styles";
+@import "./scss/skeleton/base/utils";
+@import "./scss/skeleton/base/typography";
+
+/* Modules */
+@import "./scss/skeleton/modules/grid";
+@import "./scss/skeleton/modules/buttons";
+// @import "./scss/skeleton/modules/forms";
+// @import "./scss/skeleton/modules/lists";
+// @import "./scss/skeleton/modules/code";
+// @import "./scss/skeleton/modules/tables";
+@import "./scss/skeleton/modules/spacing";
+@import "./scss/skeleton/modules/media-queries";
