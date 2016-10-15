@@ -1,30 +1,50 @@
+@import '../scss/skeleton/base/variables';
+@import '../scss/custom-variables';
+
 html, body {
   margin: 0px;
   padding: 0px;
 }
 
-header {
-  display: block;
-  background: white no-repeat 0 0 url(assets/img/logo.png);
-  border-bottom: solid black 1px;
+$navbar-height: 70px;
+
+nav.navbar {
+  border-bottom: solid $font-color 1px;
+  height: $navbar-height;
+  text-align: center;
+  padding-right: 18px;
 
   .logo-container {
     float:left;
   }
+  .menu-container {
+    float: right;
+  }
 
   a.navbar-link {
     text-transform: uppercase;
-    color: black;
     text-decoration:none;
-    // line-height:1.6rem;
+    line-height: $navbar-height;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .2rem;
+    color: $font-color;
+
+    &:hover {
+      color: black;
+    }
   }
 
   ul {
-    text-align:center;
+    margin:0;
+    text-align: center;
     list-style: none;
     li {
       display: inline-block;
-      margin-right: 1.4rem;
+      margin-right: 2.2rem;
+      &:last-child {
+        margin-right: 0;
+      }
     }
   }
 
