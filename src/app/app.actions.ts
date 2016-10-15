@@ -1,12 +1,11 @@
 import { Action, ActionCreator } from 'redux';
 import { AppState } from './app.state';
+import { Product } from './shared';
 
 export const FETCH_STATE:string = 'FETCH_INITIAL_STATE';
 export const FETCH_STATE_SUCCESS:string = 'FETCH_STATE_SUCCESS';
-export const SAVE_STATE:string = 'SAVE_STATE';
 export const ADD_TO_CART:string = 'ADD_TO_CART';
 export const REMOVE_FROM_CART:string = 'REMOVE_FROM_CART';
-export const SAVE_BUDGET:string = 'SAVE_BUDGET';
 
 
 export interface CartAction extends Action {
@@ -14,14 +13,9 @@ export interface CartAction extends Action {
   legoId: string
 }
 
-export interface StateAction extends Action {
+export interface ProductAction extends Action {
   type: string,
-  state: AppState
-}
-
-export interface BudgetAction extends Action {
-  type: string,
-  budget: number
+  procuts: Product[]
 }
 
 export const fetchState:ActionCreator<Action> = function(){
@@ -34,12 +28,6 @@ export const fetchStateSuccess:ActionCreator<Action> = function(receivedState:Ap
   return {
     type: FETCH_STATE_SUCCESS,
     state: receivedState
-  };
-};
-
-export const saveState:ActionCreator<Action> = function(){
-  return {
-    type: SAVE_STATE
   };
 };
 
@@ -56,10 +44,3 @@ export const removeFromCart:ActionCreator<CartAction> = function(legoId:string){
     legoId: legoId
   };
 };
-
-export const saveBudget:ActionCreator<BudgetAction> = function(newBudget){
-  return {
-    type: SAVE_BUDGET,
-    budget: newBudget
-  };
-}

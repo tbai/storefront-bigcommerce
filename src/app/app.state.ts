@@ -1,5 +1,6 @@
 
-import { Product } from './shared';
+import { Product, CartItem } from './shared';
+
 
 
 export interface AppState {
@@ -7,7 +8,7 @@ export interface AppState {
   // product dictionary
   products: { [productId:string]:Product },
   // list of items in the cart
-  cartList: string[],
+  cartList: CartItem[],
   // list of items available in the shopping list
   shopList: string[]
 }
