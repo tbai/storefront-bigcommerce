@@ -9,7 +9,7 @@ html, body {
 $navbar-height: 70px;
 
 nav.navbar {
-  border-bottom: solid $font-color 1px;
+  border-bottom: solid $border-color 1px;
   height: $navbar-height;
   text-align: center;
   padding-right: 18px;
@@ -23,7 +23,7 @@ nav.navbar {
 
   a.navbar-link {
     text-transform: uppercase;
-    text-decoration:none;
+    text-decoration: none;
     line-height: $navbar-height;
     font-size: 11px;
     font-weight: 600;
