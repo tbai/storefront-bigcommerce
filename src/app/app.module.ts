@@ -10,16 +10,19 @@ import { AppReducer } from './app.reducer';
 import { AppState, initialState } from './app.state';
 
 import { AppComponent } from './app.component';
+import { QuantitySelectorComponent } from './shared';
 import { CategoryPageComponent } from './category';
 import { CartPageComponent } from './cart';
-import { ProductPageComponent } from './product';
+import { ProductPageComponent, ProductTileComponent } from './product';
 
 @NgModule({
   declarations: [
     AppComponent,
     CategoryPageComponent,
     CartPageComponent,
-    ProductPageComponent
+    ProductPageComponent,
+    ProductTileComponent,
+    QuantitySelectorComponent
   ],
   imports: [
     BrowserModule,

@@ -1,46 +1,46 @@
 import { Action, ActionCreator } from 'redux';
-import { AppState } from './app.state';
+import { AppState, ProductDictionary } from './app.state';
 import { Product } from './shared';
 
-export const FETCH_STATE:string = 'FETCH_INITIAL_STATE';
-export const FETCH_STATE_SUCCESS:string = 'FETCH_STATE_SUCCESS';
+export const FETCH_PRODUCTS:string = 'FETCH_PRODUCTS';
+export const FETCH_PRODUCTS_SUCCESS:string = 'FETCH_PRODUCTS_SUCCESS';
 export const ADD_TO_CART:string = 'ADD_TO_CART';
 export const REMOVE_FROM_CART:string = 'REMOVE_FROM_CART';
 
 
 export interface CartAction extends Action {
   type: string,
-  legoId: string
+  productId: string
 }
 
 export interface ProductAction extends Action {
   type: string,
-  procuts: Product[]
+  products: ProductDictionary
 }
 
-export const fetchState:ActionCreator<Action> = function(){
+export const fetchProducts:ActionCreator<Action> = function(){
   return {
-    type: FETCH_STATE
+    type: FETCH_PRODUCTS
   };
 };
 
-export const fetchStateSuccess:ActionCreator<Action> = function(receivedState:AppState){
+export const fetchProductsSuccess:ActionCreator<ProductAction> = function(products: ProductDictionary){
   return {
-    type: FETCH_STATE_SUCCESS,
-    state: receivedState
+    type: FETCH_PRODUCTS_SUCCESS,
+    products: products
   };
 };
 
-export const addToCart:ActionCreator<CartAction> = function(legoId:string){
+export const addToCart:ActionCreator<CartAction> = function(productId:string){
   return {
     type: ADD_TO_CART,
-    legoId: legoId
+    productId: productId
   };
 };
 
-export const removeFromCart:ActionCreator<CartAction> = function(legoId:string){
+export const removeFromCart:ActionCreator<CartAction> = function(productId:string){
   return {
     type: REMOVE_FROM_CART,
-    legoId: legoId
+    productId: productId
   };
 };

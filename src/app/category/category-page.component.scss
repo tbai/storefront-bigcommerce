@@ -30,11 +30,24 @@ $textblock-width: 550px;
       padding-top:70px;
     }
 
+    h1 span {
+      border-bottom: solid white 1px;
+      padding-bottom: 1rem;
+    }
+
     @media (max-width: 550px) {
       width: auto;
       border-width: 0;
       margin: 0px;
     }
 
+  }
+}
+
+
+.product-list-container {
+  padding-top: 2em;
+  product-tile:nth-child(3n-2){
+    margin-left: 0px;
   }
 }

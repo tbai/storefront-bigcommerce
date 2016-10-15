@@ -1,4 +1,10 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+
+import { select, NgRedux } from 'ng2-redux';
+import { AppState } from './app.state';
+import { fetchProducts } from './app.actions';
+import { CartItem } from './shared';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +12,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'app works!';
+
+  @select("loading") loading$: Observable<boolean>;
+  @select("cartList") cartList$: Observable<CartItem[]>;
+
+  cartLength:number = 0;
+
+  constructor (private store: NgRedux<AppState>) {
+    this.cartList$.subscribe(items => {
+      let state = this.store.getState();
+      this.cartLength = items.reduce( (prev, curr) => (prev + curr.quantity), 0 );
+    });
+  }
+
+  ngOnInit(){
+    this.store.dispatch(fetchProducts());
+  }
+
 }

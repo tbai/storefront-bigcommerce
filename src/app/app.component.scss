@@ -9,30 +9,27 @@ html, body {
 $navbar-height: 70px;
 
 nav.navbar {
-  border-bottom: solid $border-color 1px;
   height: $navbar-height;
+
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: white;
+  z-index: 1;
+
+  border-bottom: solid $border-color 1px;
   text-align: center;
-  padding-right: 18px;
 
   .logo-container {
     float:left;
   }
   .menu-container {
     float: right;
+    margin-right: 18px;
   }
 
-  a.navbar-link {
-    text-transform: uppercase;
-    text-decoration: none;
+  a.nav-link {
     line-height: $navbar-height;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: .2rem;
-    color: $font-color;
-
-    &:hover {
-      color: black;
-    }
   }
 
   ul {
@@ -48,4 +45,15 @@ nav.navbar {
     }
   }
 
+
+  // Mobile menu icon
+  .mobile-menu {
+    font-size: 3rem;
+    line-height: $navbar-height;
+  }
+
+}
+
+.router-wrapper {
+  margin-top: $navbar-height;
 }

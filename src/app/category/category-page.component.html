@@ -1,12 +1,23 @@
-<div class="header-container">
+<div *ngIf="!loading" class="header-container">
 
   <div class="textblock">
     <div class="wrapper">
-      <h1>Plates</h1>
+      <h1><span>Plates</span></h1>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at purus pulvinar, placerat turpis ac, interdum metus. In eget massa sed enim hendrerit auctor a eget.
       </p>
     </div>
   </div>
 
+</div>
+
+<div *ngIf="!loading" class="product-list-container container">
+  <div class="row">
+
+
+    <product-tile *ngFor="let product of sortedProductList"
+                  class="one-third column" [product]="product"></product-tile>
+
+
+  </div>
 </div>

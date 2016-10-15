@@ -1,0 +1,35 @@
+<div *ngIf="product" class="container">
+
+  <div class="row">
+      <div class="breadcrumbs">
+        <a class="nav-link" routerLink="/">Home</a>
+        <span class="nav-link"> / </span>
+        <a class="nav-link" href="#">Plates</a>
+        <span class="nav-link"> / </span>
+        <span class="nav-link">{{product.title}}</span>
+      </div>
+  </div>
+
+  <div class="row">
+
+    <!-- Image container -->
+    <div class="seven columns">
+      <img class="u-max-full-width" src="assets/img/{{product.image}}" alt="{{product.title}}">
+    </div>
+
+    <!-- Product details -->
+    <div class="five columns product-details">
+      <p class="brand"> {{product.brand}} </p>
+      <h1 class="title"> {{product.title}} </h1>
+      <h5 class="price"> {{product.price | currency:'USD':true}} </h5>
+      <p class="description"> {{product.description}} </p>
+      <hr>
+      <div class="actions">
+        <quantity-selector></quantity-selector>
+        <button class="button-primary" (click)="addToCart()">Add To Cart</button>
+      </div>
+    </div>
+
+  </div>
+
+</div>

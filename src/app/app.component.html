@@ -4,21 +4,22 @@
     <a routerLink="/"><img src="assets/img/logo.png" alt="Storefront"></a>
   </div>
   <div class="menu-container">
-    <a class="navbar-link" href="#">My Cart <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+    <a class="nav-link hidden-phone" href="#">My Cart ({{cartLength}}) <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+    <a class="mobile-menu visible-phone"><i class="fa fa-bars" aria-hidden="true"></i></a>
   </div>
 
-  <ul class="main-menu">
+  <ul class="main-menu hidden-phone">
     <li>
-      <a class="navbar-link" routerLink="/">Home</a>
+      <a class="nav-link" routerLink="/">Home</a>
     </li>
     <li>
-      <a class="navbar-link" routerLink="/">Shop <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+      <a class="nav-link" routerLink="/">Shop <i class="fa fa-caret-down" aria-hidden="true"></i></a>
     </li>
     <li>
-      <a class="navbar-link" routerLink="/">Journal</a>
+      <a class="nav-link" routerLink="/">Journal</a>
     </li>
     <li>
-      <a class="navbar-link" routerLink="/">More <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+      <a class="nav-link" routerLink="/">More <i class="fa fa-caret-down" aria-hidden="true"></i></a>
     </li>
   </ul>
 
@@ -26,6 +27,6 @@
 </nav>
 
 
-<div>
+<div class="router-wrapper">
   <router-outlet></router-outlet>
 </div>
