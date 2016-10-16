@@ -40,7 +40,8 @@ a.nav-link:hover {
   text-decoration: underline;
 }
 
-button[disabled] {
+button[disabled],
+button[disabled]:hover {
   background:#ccc;
   border: #ccc;
 }
