@@ -12,6 +12,11 @@
 
   <div class="u-cf"></div>
 </div>
+<div *ngIf="cartList.length === 0" class="cart-item">
+  <br>
+  <p>The cart is empty.</p>
+  <br>
+</div>
 
 <div class="actions">
   <div>
@@ -20,6 +25,8 @@
     <div class="u-cf"></div>
   </div>
   <a class="button" routerLink="/cart" (click)="close($event)">View Cart</a>
-  <a class="button button-primary u-pull-right" (click)="checkout($event)">Checkout</a>
+  <button class="button-primary u-pull-right"
+    [disabled]="cartList.length === 0"
+    (click)="checkout()">Checkout</button>
   <div class="u-cf"></div>
 </div>

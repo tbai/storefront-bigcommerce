@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 
 import { select, NgRedux } from 'ng2-redux';
 import { AppState } from './app.state';
-import { fetchProducts } from './app.actions';
+import { fetchProducts, showCartPopup, hideCartPopup } from './app.actions';
 import { CartItem } from './shared';
 
 @Component({
@@ -27,6 +27,26 @@ export class AppComponent {
 
   ngOnInit(){
     this.store.dispatch(fetchProducts());
+  }
+
+  toggleCartPopup(event){
+    event.preventDefault();
+    event.stopPropagation();
+
+    let state = this.store.getState();
+    if (state.cartPopupVisible){
+      this.hideCartPopup();
+    } else {
+      this.showCartPopup();
+    }
+  }
+
+  showCartPopup(){
+    this.store.dispatch(showCartPopup());
+  }
+
+  hideCartPopup(){
+    this.store.dispatch(hideCartPopup());
   }
 
 }

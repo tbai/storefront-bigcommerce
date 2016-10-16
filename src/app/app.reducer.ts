@@ -32,6 +32,12 @@ export class AppReducer {
       case Actions.CHANGE_CART_PRODUCT_QUANTITY:
          return this.reduceChangeCartQuantity(state, action as CartAction);
 
+      case Actions.SHOW_CART_POPUP:
+         return this.reduceShowCartPopup(state);
+
+      case Actions.HIDE_CART_POPUP:
+         return this.reduceHideCartPopup(state);
+
       default:
         return state;
     }
@@ -121,8 +127,19 @@ export class AppReducer {
     } else {
       return state;
     }
+  }
 
 
+  reduceShowCartPopup(state:AppState) : AppState {
+    return Object.assign({}, state, {
+      cartPopupVisible: true
+    });
+  }
+
+  reduceHideCartPopup(state:AppState) : AppState {
+    return Object.assign({}, state, {
+      cartPopupVisible: false
+    });
   }
 
 }

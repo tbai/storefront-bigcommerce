@@ -5,7 +5,7 @@
   </div>
   <div class="menu-container">
 
-    <a class="nav-link hidden-phone" routerLink="/cart">
+    <a class="nav-link hidden-phone" (click)="toggleCartPopup($event)">
       My Cart ({{cartLength}})
       <i class="fa fa-caret-down" aria-hidden="true"></i>
     </a>
