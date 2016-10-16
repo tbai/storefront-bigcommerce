@@ -8,13 +8,13 @@ import { Observable } from 'rxjs';
 import { AppState, ProductDictionary } from '../app.state';
 import { removeFromCart, changeCartProductQuantity } from '../app.actions';
 
-
-export class CartComponent implements OnInit, OnDestroy {
+// Base component to be used by the other cart related pages
+export class CartBaseComponent implements OnInit, OnDestroy {
   cartList: {product:Product, quantity:number}[];
   total: number;
   unsubscribe: Unsubscribe;
 
-  constructor(private store: NgRedux<AppState>) {}
+  constructor(protected store: NgRedux<AppState>) {}
 
   ngOnInit(){
     this.setupData();
@@ -46,7 +46,16 @@ export class CartComponent implements OnInit, OnDestroy {
 
   removeProduct(event, productId:string){
     event.preventDefault();
+    event.stopPropagation();
     this.store.dispatch(removeFromCart(productId));
+  }
+
+  changeQuantity(productId:string, quantity:number){
+    this.store.dispatch(changeCartProductQuantity(productId, quantity));
+  }
+
+  checkout(event){
+    alert("Checkout not implementd :( ");
   }
 
 

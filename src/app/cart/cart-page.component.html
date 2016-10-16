@@ -74,7 +74,7 @@
             <a class="nav-link" routerLink="/category">Continue Shopping</a>
           </td>
           <td colspan="2">
-            <button class="button-primary">Checkout ({{total | currency:"USD":true}})</button>
+            <button class="button-primary" (click)="checkout()">Checkout ({{total | currency:"USD":true}})</button>
           </td>
         </tr>
 
