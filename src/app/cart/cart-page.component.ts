@@ -6,7 +6,7 @@ import { Product } from '../shared';
 import { Observable } from 'rxjs';
 
 import { AppState, ProductDictionary } from '../app.state';
-import { removeFromCart } from '../app.actions';
+import { removeFromCart, changeCartProductQuantity } from '../app.actions';
 
 
 @Component({
@@ -55,6 +55,11 @@ export class CartPageComponent implements OnDestroy {
   removeProduct(event, productId:string){
     event.preventDefault();
     this.store.dispatch(removeFromCart(productId));
+  }
+
+  changeQuantity(productId:string, quantity:number){
+    console.log("Change quantity", productId, quantity);
+    this.store.dispatch(changeCartProductQuantity(productId, quantity));
   }
 
 }

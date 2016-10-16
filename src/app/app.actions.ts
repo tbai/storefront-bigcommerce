@@ -6,11 +6,13 @@ export const FETCH_PRODUCTS:string = 'FETCH_PRODUCTS';
 export const FETCH_PRODUCTS_SUCCESS:string = 'FETCH_PRODUCTS_SUCCESS';
 export const ADD_TO_CART:string = 'ADD_TO_CART';
 export const REMOVE_FROM_CART:string = 'REMOVE_FROM_CART';
+export const CHANGE_CART_PRODUCT_QUANTITY:string = 'CHANGE_CART_PRODUCT_QUANTITY';
 
 
 export interface CartAction extends Action {
   type: string,
-  productId: string
+  productId: string,
+  quantity: number
 }
 
 export interface ProductAction extends Action {
@@ -34,13 +36,24 @@ export const fetchProductsSuccess:ActionCreator<ProductAction> = function(produc
 export const addToCart:ActionCreator<CartAction> = function(productId:string){
   return {
     type: ADD_TO_CART,
-    productId: productId
+    productId: productId,
+    quantity: null
   };
 };
 
 export const removeFromCart:ActionCreator<CartAction> = function(productId:string){
   return {
     type: REMOVE_FROM_CART,
-    productId: productId
+    productId: productId,
+    quantity: null
   };
 };
+
+
+export const changeCartProductQuantity:ActionCreator<CartAction> = function(productId:string, quantity:number){
+  return {
+    type: CHANGE_CART_PRODUCT_QUANTITY,
+    productId: productId,
+    quantity: quantity
+  };
+}

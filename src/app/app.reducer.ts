@@ -29,8 +29,8 @@ export class AppReducer {
       case Actions.REMOVE_FROM_CART:
         return this.reduceRemoveFromCart(state, action as CartAction);
 
-      // case Actions.SAVE_BUDGET:
-      //   return this.reduceSaveBudget(state, action as BudgetAction);
+      case Actions.CHANGE_CART_PRODUCT_QUANTITY:
+         return this.reduceChangeCartQuantity(state, action as CartAction);
 
       default:
         return state;
@@ -94,6 +94,35 @@ export class AppReducer {
     return Object.assign({}, state, {
       cartList: cartList
     });
+  }
+
+
+  reduceChangeCartQuantity(state:AppState, action:CartAction) : AppState {
+    let productId = action.productId;
+    let quantity = action.quantity;
+
+    // check constraints
+    if (quantity > 0 && quantity < 10000){
+
+      // clone the list to prevent changing the state object
+      let cartList = Array.from(state.cartList);
+      let index = cartList.findIndex(item => item.productId === productId);
+      if (index >=0){
+        // clone and replace the item from the list
+        let currentCartItem = cartList[index];
+        let newCartItem = Object.assign({}, currentCartItem, {quantity:quantity});
+        cartList.splice(index, 1, newCartItem);
+      }
+
+      return Object.assign({}, state, {
+        cartList: cartList
+      });
+
+    } else {
+      return state;
+    }
+
+
   }
 
 }
