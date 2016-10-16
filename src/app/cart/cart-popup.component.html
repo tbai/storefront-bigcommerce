@@ -1,0 +1,25 @@
+<div *ngFor="let item of cartList" class="cart-item">
+
+  <img src="assets/img/{{item.product.image}}">
+  <a class="remove-icon noselect" href="#" title="Remove"
+          (click)="removeProduct($event, item.product.id)">X</a>
+  <p class="strong" title="{{item.product.title}}">
+    {{item.product.title}}</p>
+  <p>
+    x {{item.quantity}}</p>
+  <p title="{{item.product.brand}}">
+    <small>{{item.product.brand}}</small></p>
+
+  <div class="u-cf"></div>
+</div>
+
+<div class="actions">
+  <div>
+    <p class="u-pull-right">{{total | currency:USD:true}}</p>
+    <p>Total</p>
+    <div class="u-cf"></div>
+  </div>
+  <a class="button" routerLink="/cart" (click)="close($event)">View Cart</a>
+  <a class="button button-primary u-pull-right" (click)="checkout($event)">Checkout</a>
+  <div class="u-cf"></div>
+</div>

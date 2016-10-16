@@ -5,6 +5,7 @@ export interface ProductDictionary { [productId:string]:Product }
 
 export interface AppState {
   loading: boolean,
+  cartPopupVisible: boolean,
   // product dictionary
   products: ProductDictionary,
   // list of items in the cart
@@ -13,6 +14,7 @@ export interface AppState {
 
 export const initialState:AppState = {
   loading: true,
+  cartPopupVisible: false,
   products: {},
   cartList: []
 };

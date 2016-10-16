@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import { NgRedux } from 'ng2-redux';
 import { Unsubscribe } from 'redux';
@@ -9,20 +9,12 @@ import { AppState, ProductDictionary } from '../app.state';
 import { removeFromCart, changeCartProductQuantity } from '../app.actions';
 
 
-@Component({
-  selector: 'cart-page',
-  styleUrls: ['cart-page.component.scss'],
-  templateUrl: 'cart-page.component.html'
-})
-export class CartPageComponent implements OnInit, OnDestroy {
-
-
+export class CartComponent implements OnInit, OnDestroy {
   cartList: {product:Product, quantity:number}[];
   total: number;
   unsubscribe: Unsubscribe;
 
-  constructor(private store: NgRedux<AppState>) {
-  }
+  constructor(private store: NgRedux<AppState>) {}
 
   ngOnInit(){
     this.setupData();
@@ -57,8 +49,5 @@ export class CartPageComponent implements OnInit, OnDestroy {
     this.store.dispatch(removeFromCart(productId));
   }
 
-  changeQuantity(productId:string, quantity:number){
-    this.store.dispatch(changeCartProductQuantity(productId, quantity));
-  }
 
 }

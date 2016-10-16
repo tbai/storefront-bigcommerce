@@ -12,7 +12,7 @@ import { AppState, initialState } from './app.state';
 import { AppComponent } from './app.component';
 import { QuantitySelectorComponent } from './shared';
 import { CategoryPageComponent } from './category';
-import { CartPageComponent } from './cart';
+import { CartPageComponent, CartPopupComponent } from './cart';
 import { ProductPageComponent, ProductTileComponent } from './product';
 
 @NgModule({
@@ -22,7 +22,8 @@ import { ProductPageComponent, ProductTileComponent } from './product';
     CartPageComponent,
     ProductPageComponent,
     ProductTileComponent,
-    QuantitySelectorComponent
+    QuantitySelectorComponent,
+    CartPopupComponent
   ],
   imports: [
     BrowserModule,
