@@ -1,0 +1,84 @@
+<div class="container">
+  <div class="row subtitle">
+    <h1>Shopping Cart</h1>
+  </div>
+</div>
+
+<div class="container content-table">
+  <div class="row">
+    <table class="u-full-width">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Quantity</th>
+          <th>Total</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <!-- Products -->
+        <tr *ngFor="let item of cartList">
+
+          <!-- Product details -->
+          <td class="product-details">
+            <img src="assets/img/{{item.product.image}}">
+            <p title="{{item.product.brand}}">
+              {{item.product.brand}}</p>
+            <p class="title" title="{{item.product.title}}">
+              {{item.product.title}}</p>
+          </td>
+
+          <!-- Quantity -->
+          <td>
+            <quantity-selector></quantity-selector>
+          </td>
+
+          <!-- Price -->
+          <td>{{item.product.price*item.quantity | currency:USD:true}}</td>
+
+          <!-- Actions -->
+          <td>
+            <a class="remove-icon" (click)="removeProduct($event, item.product.id)" href="#">
+              <i class="fa fa-times" aria-hidden="true"></i></a>
+          </td>
+
+        </tr>
+
+        <tr *ngIf="cartList.length === 0">
+          <td colspan="4" class="cart-empty-text">
+            <h5>Your shopping cart is empty.</h5>
+            <p><a class="nav-link" routerLink="/category">Continue Shopping</a></p>
+          </td>
+        </tr>
+
+
+        <!-- Summary -->
+        <tr class="summary">
+          <td colspan="2">
+            <p>Cart Overview</p>
+            <p>Subtotal</p>
+            <p>Total</p>
+          </td>
+          <td colspan="2">
+            <p>&nbsp;</p>
+            <p>{{total | currency:USD:true}}</p>
+            <p>{{total | currency:USD:true}} USD</p>
+          </td>
+        </tr>
+
+
+        <!-- Footer Buttons -->
+        <tr class="footer-actions">
+          <td colspan="2">
+            <a class="nav-link" routerLink="/category">Continue Shopping</a>
+          </td>
+          <td colspan="2">
+            <button class="button-primary">Checkout ({{total | currency:"USD":true}})</button>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>

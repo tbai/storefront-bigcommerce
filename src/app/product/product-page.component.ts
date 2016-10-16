@@ -42,7 +42,8 @@ export class ProductPageComponent implements OnInit {
     });
   }
 
-  addToCart(){
+  addToCart($event){
     this.store.dispatch(addToCart(this.product.id));
+    $event.target.blur();
   }
 }
