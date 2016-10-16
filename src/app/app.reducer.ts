@@ -74,7 +74,7 @@ export class AppReducer {
     }
 
     // increment the quantity
-    cartItem.quantity ++;
+    cartItem.quantity += action.quantity;
 
     return Object.assign({}, state, {
       cartList: cartList

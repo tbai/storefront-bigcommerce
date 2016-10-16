@@ -33,11 +33,11 @@ export const fetchProductsSuccess:ActionCreator<ProductAction> = function(produc
   };
 };
 
-export const addToCart:ActionCreator<CartAction> = function(productId:string){
+export const addToCart:ActionCreator<CartAction> = function(productId:string, quantity:number =1){
   return {
     type: ADD_TO_CART,
     productId: productId,
-    quantity: null
+    quantity: quantity
   };
 };
 

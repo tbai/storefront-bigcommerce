@@ -15,6 +15,7 @@ import { addToCart } from '../app.actions';
 })
 export class ProductPageComponent implements OnInit {
 
+  quantity: number = 1;
   productId: string;
   product: Product;
   products: ProductDictionary;
@@ -42,8 +43,12 @@ export class ProductPageComponent implements OnInit {
     });
   }
 
+  changeQuantity(newQuantity:number){
+    this.quantity = newQuantity;
+  }
+
   addToCart($event){
-    this.store.dispatch(addToCart(this.product.id));
+    this.store.dispatch(addToCart(this.product.id, this.quantity));
     $event.target.blur();
   }
 }
