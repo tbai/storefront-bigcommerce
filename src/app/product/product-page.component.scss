@@ -9,4 +9,16 @@ img {
 
 .product-details {
   text-align: center;
+
+  .actions{
+    width: 215px;
+    margin: 0 auto;
+    quantity-selector, button {
+      float: left;
+    }
+    button {
+      width: 146px;
+      margin-left: 10px;
+    }
+  }
 }
