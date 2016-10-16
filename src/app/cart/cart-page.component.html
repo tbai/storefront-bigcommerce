@@ -39,8 +39,10 @@
 
           <!-- Actions -->
           <td>
-            <a class="remove-icon" (click)="removeProduct($event, item.product.id)" href="#">
-              <i class="fa fa-times" aria-hidden="true"></i></a>
+            <a class="remove-icon" href="#" title="Remove"
+              (click)="removeProduct($event, item.product.id)" >
+              X
+              </a>
           </td>
 
         </tr>

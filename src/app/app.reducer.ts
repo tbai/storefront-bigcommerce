@@ -26,8 +26,8 @@ export class AppReducer {
       case Actions.ADD_TO_CART:
         return this.reduceAddToCart(state, action as CartAction);
 
-      // case Actions.REMOVE_FROM_CART:
-      //   return this.reduceRemoveFromCart(state, action as CartAction);
+      case Actions.REMOVE_FROM_CART:
+        return this.reduceRemoveFromCart(state, action as CartAction);
 
       // case Actions.SAVE_BUDGET:
       //   return this.reduceSaveBudget(state, action as BudgetAction);
@@ -75,6 +75,21 @@ export class AppReducer {
 
     // increment the quantity
     cartItem.quantity ++;
+
+    return Object.assign({}, state, {
+      cartList: cartList
+    });
+  }
+
+  reduceRemoveFromCart(state:AppState, action:CartAction) : AppState {
+    let productId = action.productId;
+
+    // clone the list to prevent changing the state object
+    let cartList = Array.from(state.cartList);
+    let index = cartList.findIndex(item => item.productId === productId);
+    if (index >= 0){
+      cartList.splice(index, 1);
+    }
 
     return Object.assign({}, state, {
       cartList: cartList
